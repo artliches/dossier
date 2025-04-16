@@ -1,0 +1,248 @@
+$chartreuse: #c2fe0c;
+$division: #ececec;
+
+@mixin flex-column($gap: 0rem) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+button {
+    border-radius: 0rem;
+    border: none;
+    width: 3.3rem;
+    height: 100%;
+    text-align: center;
+    font-family: 'Roboto';
+    &:hover:not(:disabled) {
+        background-color: $chartreuse;
+        cursor: pointer;
+    }
+}
+
+.tsl-char-sheet {
+    height: 100%;
+
+    .identity-section {
+        background-color: $chartreuse;
+        padding: 1rem 0rem 1rem 1rem;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        grid-template-areas:
+            "name"
+            "playbooks"
+            "descrip"
+            "utility";
+        .name-section {
+            grid-area: name;
+        }
+        .playbook-section {
+            grid-area: playbooks;
+            margin-right: 1rem;
+            .input-section > select > option:disabled {
+                color: black;
+            }
+        }
+        .playbook-descrip-section {
+            grid-area: descrip;
+        }
+        .utility-section {
+            grid-area: utility;
+            place-self: end;
+            button {
+                width: max-content;
+                height: min-content;
+                background-color: black;
+                color: white;
+                &:hover {
+                    background-color: blue;
+                    color: white;
+                    font-weight: bold;
+                }
+            }
+        }
+        .input-section > input, .input-section > select {
+            background-color: transparent;
+            font-size: 1.2rem;
+            &:disabled {
+                color: black;
+            }
+        }
+    }
+    .subsection {
+        &:nth-child(even) {
+            background-color: black;
+            color: white;
+        }
+        &:nth-child(odd) {
+            border: 1px solid $chartreuse;
+        }
+        border-top: none;
+        padding: 1rem;
+        .subsection-title {
+            font-size: 1.3rem;
+            font-family: 'Adder';
+        }
+        &.truths {
+            .subsection-body {
+                @include flex-column(1rem);
+                em {
+                    color: #ccc;
+                }
+            }
+        }
+        &.stat-choice {
+            display: grid;
+            grid-auto-rows: max-content;
+            grid-auto-flow: row;
+            grid-gap: 1rem;
+            place-items: center;
+
+            .choice-section {
+                .subsection-title {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+    .stats {
+        @include flex-column(0.5rem);
+    }
+    .stat-choice-section {
+        display: grid;
+        grid-template-columns: repeat(2, 48px);
+        grid-template-areas:
+            "col1       col2"
+            "descrip    descrip";
+
+        .choice-descrip {
+            grid-area: descrip;
+        }
+        .choice-column {
+            font-size: 2rem;
+            @include flex-column(0.5rem);
+            text-align: center;
+            >div {
+                padding: 2px 1px 0 1px;
+                border: 1px solid black;
+                height: 42px;
+                width: 42px;
+            }
+            &:hover {
+                background-color: #c2fe0c;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+input, select {
+    font-family: 'Roboto';
+}
+
+.input-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+    label {
+        grid-row: 2;
+        font-size: .8rem;
+        user-select: none;
+    }
+    input {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+    select {
+        border: none;
+        border-bottom: 1px solid black;
+    }
+}
+
+.stat-section {
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas: 
+        "input  label"
+        "input  descrip";
+    column-gap: 0.5rem;
+    label {
+        grid-area: label;
+        place-self: center start;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .button-section {
+            display: flex;
+            gap: 1rem;
+        }
+    }
+    .stat-descrip {
+        grid-area: descrip;
+        font-size: var(--descrip-font-size);
+        color: grey;
+    }
+    input {
+        grid-area: input;
+        text-align: center;
+        font-size: 2rem;
+        border-radius: 0rem;
+        border: 1px solid black;
+        user-select: none;
+        cursor: default;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    }
+
+    input[type=number] {
+        -moz-appearance:textfield; /* Firefox */
+    }
+}
+
+@media only screen and (min-width: 425px) {
+    .tsl-char-sheet {    
+        .subsection {
+            &.stat-choice {
+                display: grid;
+                grid-auto-columns: max-content;
+                grid-auto-flow: column;
+                grid-gap: 1rem;
+                place-items: unset;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .tsl-char-sheet {    
+        .identity-section {
+            grid-template-columns: 2fr 1fr;
+            grid-template-areas:
+                "name       playbooks"
+                "descrip    utility";
+        }
+        .body-section {
+            display: flex;
+
+        }
+        .subsection {
+            &.stat-choice {
+                width: max-content;
+            }
+            &.truths {
+                @include flex-column;
+                justify-content: center;
+                width: 100%;
+            }
+        }
+    }
+}

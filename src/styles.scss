@@ -1,1 +1,73 @@
-/* You can add global styles to this file, and also import other style files */
+@mixin flex-column($gap: 0rem) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+@font-face {
+    font-family: "Orpheus";
+    src: local('Orpheus'), url(../public/assets/fonts/Orpheus.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local('Roboto'), url(../public/assets/fonts/Roboto.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Alegreya";
+    src: local('Alegreya'), url(../public/assets/fonts/Alegreya.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Adder";
+    src: local('Adder'), url(../public/assets/fonts/Adder.otf) format('opentype');
+}
+
+:root {
+    --standard-font-size: 10px;
+    --small-font-size: 8pt;
+    --line-height: 7.1mm;
+    --descrip-font-size: 0.7rem;
+    --chartreuse: #c2fe0c;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+body {
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    font-family: 'Roboto';
+}
+
+.playbook-descrip {
+    @include flex-column(0.5rem);
+    font-size: var(--descrip-font-size);
+}
+
+.clickable {
+    cursor: pointer;
+    &:hover {
+        background-color: var(--chartreuse);
+    }
+}
+
+.small-text {
+    font-size: var(--descrip-font-size);
+}
+
+ul {
+    margin: 0;
+    padding-left: 1rem;
+    list-style-type: none;
+    li:before {
+        content: '[ + ]'
+    }
+}
