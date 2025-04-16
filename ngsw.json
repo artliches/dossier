@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1744840936589,
+  "timestamp": 1744841790218,
   "index": "/dossier/index.html",
   "assetGroups": [
     {
@@ -13,10 +13,10 @@
       "urls": [
         "/dossier/favicon.ico",
         "/dossier/index.html",
-        "/dossier/main-NNAMNOF3.js",
+        "/dossier/main-Q327JZWY.js",
         "/dossier/manifest.webmanifest",
         "/dossier/polyfills-FFHMD2TL.js",
-        "/dossier/styles-BF47SFIF.css"
+        "/dossier/styles-7WYWWDW5.css"
       ],
       "patterns": []
     },
@@ -29,18 +29,15 @@
       },
       "urls": [
         "/dossier/assets/fonts/Adder.otf",
-        "/dossier/assets/fonts/Alegreya.ttf",
-        "/dossier/assets/fonts/Orpheus.ttf",
-        "/dossier/assets/fonts/Roboto.ttf",
+        "/dossier/assets/fonts/RobotoMono-Italic.ttf",
+        "/dossier/assets/fonts/RobotoMono.ttf",
         "/dossier/icons/android-chrome-192x192.png",
         "/dossier/icons/android-chrome-512x512.png",
         "/dossier/icons/apple-touch-icon.png",
         "/dossier/icons/favicon-16x16.png",
         "/dossier/icons/favicon-32x32.png",
         "/dossier/media/Adder-5HCF564L.otf",
-        "/dossier/media/Alegreya-JSGAVCRA.ttf",
-        "/dossier/media/Orpheus-7TSGNS6I.ttf",
-        "/dossier/media/Roboto-W4DSDWKB.ttf"
+        "/dossier/media/RobotoMono-W4DSDWKB.ttf"
       ],
       "patterns": []
     }
@@ -48,24 +45,21 @@
   "dataGroups": [],
   "hashTable": {
     "/dossier/assets/fonts/Adder.otf": "611bb3e58129dc95bbf91f1b1de84cd1195d781b",
-    "/dossier/assets/fonts/Alegreya.ttf": "6609880948728419617455150aea67982b0319c1",
-    "/dossier/assets/fonts/Orpheus.ttf": "06857ee5321754c7f92fb3b33aaed85f9595d7f8",
-    "/dossier/assets/fonts/Roboto.ttf": "db68e7694003b4a0f58c675b4131a8226a566f5c",
+    "/dossier/assets/fonts/RobotoMono-Italic.ttf": "482fe6d50836d6dabe77d2810248e5dfb4f093e0",
+    "/dossier/assets/fonts/RobotoMono.ttf": "db68e7694003b4a0f58c675b4131a8226a566f5c",
     "/dossier/favicon.ico": "a377c608e3f5ef2a54468bf5302ad723b85b6209",
     "/dossier/icons/android-chrome-192x192.png": "c43232a58dc09153a87b5eeda197a8d576dc5346",
     "/dossier/icons/android-chrome-512x512.png": "1fc180a6f1675d8cd859bf285f427235506634e8",
     "/dossier/icons/apple-touch-icon.png": "4f75927ff739f5340882b8cc17435d7e77350a8d",
     "/dossier/icons/favicon-16x16.png": "e7c802d9e95ee46119a85447d415e413f89b435c",
     "/dossier/icons/favicon-32x32.png": "d28406120746dae08c3bf4e15686900a4a132c76",
-    "/dossier/index.html": "720ee8beab80a34fab19ed33073783905a218cac",
-    "/dossier/main-NNAMNOF3.js": "552daefd194fa39198e81a5893bed83822aa71bd",
+    "/dossier/index.html": "8e97197cf5a74c9198ae74e439db3aa45b225e2d",
+    "/dossier/main-Q327JZWY.js": "0796b1cdacfd78e14710dced289c8e3ffe7b25c5",
     "/dossier/manifest.webmanifest": "7698e1cb2dbcf9266c5a8c7d435e8a735a0c7710",
     "/dossier/media/Adder-5HCF564L.otf": "611bb3e58129dc95bbf91f1b1de84cd1195d781b",
-    "/dossier/media/Alegreya-JSGAVCRA.ttf": "6609880948728419617455150aea67982b0319c1",
-    "/dossier/media/Orpheus-7TSGNS6I.ttf": "06857ee5321754c7f92fb3b33aaed85f9595d7f8",
-    "/dossier/media/Roboto-W4DSDWKB.ttf": "db68e7694003b4a0f58c675b4131a8226a566f5c",
+    "/dossier/media/RobotoMono-W4DSDWKB.ttf": "db68e7694003b4a0f58c675b4131a8226a566f5c",
     "/dossier/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "/dossier/styles-BF47SFIF.css": "c7619440b2976b0b4e097308abf8090d2b6fe153"
+    "/dossier/styles-7WYWWDW5.css": "a3bf20368060a7ee08c988426bfa527353b06e4a"
   },
   "navigationUrls": [
     {
