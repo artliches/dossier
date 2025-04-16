@@ -5,18 +5,8 @@
 }
 
 @font-face {
-    font-family: "Orpheus";
-    src: local('Orpheus'), url(../public/assets/fonts/Orpheus.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: local('Roboto'), url(../public/assets/fonts/Roboto.ttf) format('truetype');
-}
-
-@font-face {
-    font-family: "Alegreya";
-    src: local('Alegreya'), url(../public/assets/fonts/Alegreya.ttf) format('truetype');
+    font-family: 'RobotoMono';
+    src: local('RobotoMono'), url(../public/assets/fonts/RobotoMono.ttf) format('truetype');
 }
 
 @font-face {
@@ -44,7 +34,7 @@ body {
     background-color: white;
     color: black;
     font-size: 1rem;
-    font-family: 'Roboto';
+    font-family: 'RobotoMono';
 }
 
 .playbook-descrip {
