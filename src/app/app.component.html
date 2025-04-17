@@ -35,10 +35,9 @@
 
      <div class="body-section">
       @if (showStatSection()) {
-        <div class="subsection stat-choice">
-          <span class="stat-subsection">
+        <div [ngClass]="{'padding-1': hideStartingStats}" class="subsection stat-choice">
+          <div class="stat-subsection">
             <div
-              [ngClass]="{'clickable': hideStartingStats}"
               class="subsection-title"
             ><strong>STATS</strong></div>
             @if (!collapseStats) {
@@ -102,20 +101,17 @@
                 </span>
               </div>
             }
-          </span>
+          </div>
 
           @if (startingStats.length > 0 && !hideStartingStats) {
             <span class="choice-section">
               <div class="subsection-title">
                 <strong
-                  [ngClass]="{'clickable': statChosen}"
+                  [ngClass]="{'clickable next': statChosen}"
                   (click)="removeStartingStatSelection(statChosen)"
                 >
-                  {{ statChosen ? 'CLOSE?' : 'CHOOSE' }}
+                  {{ statChosen ? 'NEXT' : 'CHOOSE' }}
                 </strong>
-                <!-- @if (statChosen) {
-                  <button (click)="hideStartingStats = true">[ x ]</button>
-                } -->
               </div>
               <div class="subsection-body">
                 <span class="stat-choice-section">
@@ -133,7 +129,7 @@
           }
         </div>
       }
-      @if (tslInfo.playbook && tslInfo.playbook !== '') {
+      @if (hideStartingStats) {
         <div class="subsection truths">
           <div class="subsection-title">
             <strong>TRUTHS OF HEART AND BLADE</strong>
@@ -156,6 +152,10 @@
             }
           </div>
         </div>
+      }
+
+      @if (hideStartingStats) {
+        <app-unique-playbook-mechanics [playbook]="tslInfo.playbook"></app-unique-playbook-mechanics>
       }
      </div>
    </form>

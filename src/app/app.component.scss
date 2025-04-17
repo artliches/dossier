@@ -209,15 +209,30 @@ input, select {
     }
 }
 
+@media only screen and (min-width: 375px) {
+    .tsl-char-sheet {    
+        .subsection {
+            &.stat-choice {
+                padding: 1rem 0.2rem;
+                display: grid;
+                grid-auto-columns: max-content;
+                grid-auto-flow: column;
+                grid-gap: 0.5rem;
+                place-items: unset;
+                &.padding-1 {
+                    padding: 1rem;
+                }
+            }
+        }
+    }
+}
+
 @media only screen and (min-width: 425px) {
     .tsl-char-sheet {    
         .subsection {
             &.stat-choice {
-                display: grid;
-                grid-auto-columns: max-content;
-                grid-auto-flow: column;
+                padding: 1rem;
                 grid-gap: 1rem;
-                place-items: unset;
             }
         }
     }

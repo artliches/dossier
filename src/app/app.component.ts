@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TSL_Info } from './models/tsl-interface';
-import { BEAST, CHOSEN, DEVOTED, PLAYBOOK_LIST } from '../../public/assets/playbooks.constants';
+import { BEAST, CHOSEN, DEVOTED, INFAMOUS, PLAYBOOK_LIST } from '../../public/assets/playbooks.constants';
+import { UniquePlaybookMechanicsComponent } from "./unique-playbook-mechanics/unique-playbook-mechanics.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, UniquePlaybookMechanicsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -48,6 +49,13 @@ export class AppComponent {
         this.tslInfo.playbook_descrip = DEVOTED.descrip;
         this.startingStats = DEVOTED.startingStats;
         this.tslInfo.truths = DEVOTED.truths;
+        break;
+      }
+      case this.tslInfo.playbook === 'infamous': {
+        playbookInfo = INFAMOUS;
+        this.tslInfo.playbook_descrip = INFAMOUS.descrip;
+        this.startingStats = INFAMOUS.startingStats;
+        this.tslInfo.truths = INFAMOUS.truths;
         break;
       }
       default: {
