@@ -2,7 +2,7 @@ export const PLAYBOOK_LIST = [
     `beast`,
     `chosen`,
     `devoted`,
-    // `infamous`,
+    `infamous`,
     // `nature witch`,
     // `scoundrel`,
     // `seeker`,
@@ -106,7 +106,7 @@ export const DEVOTED = {
         {
             name: 'MY HEART IS NOT MINE TO GIVE',
             questions: [
-                'How does pursuing them conflict with yourDevotion?'
+                'How does pursuing them conflict with your Devotion?'
             ]
         },
         {
@@ -114,6 +114,46 @@ export const DEVOTED = {
             questions: [
                 `What are you willing to risk death for?`,
                 `What kind of deeds earn your loyalty?`,
+            ]
+        }
+    ],
+};
+
+export const INFAMOUS = {
+    descrip: `
+        <span class="playbook-descrip">
+            <div>
+                The Infamous once participated in
+                wicked deeds, but they've become
+                fiercely righteous in trying to atone.
+            </div>
+            <div>
+                Their central conflict arises from the
+                lasting consequences of their past
+                actions and beliefs versus their new
+                convictions. Will they repair the harm
+                they caused, will they seek forgiveness,
+                or will they despair? Will they find a
+                new place to belong?
+            </div>
+        </span>
+    `,
+    startingStats: [
+        [1, -1, 0, 0, 1],
+        [1, 0, 0, 1, -1]
+    ],
+    truths: [
+        {
+            name: 'UNDESERVING',
+            questions: [
+                'Why do you think they would be wrong to forgive you?'
+            ]
+        },
+        {
+            name: 'YOUR WICKED HEART',
+            questions: [
+                `What are you most ashamed of?`,
+                `How could I get you to betray your ideals?`,
             ]
         }
     ],
