@@ -1,3 +1,69 @@
-<div>
-    {{playbook}}
+<div class="mechanic-layout">
+    <strong (click)="toggleCollapse = !toggleCollapse" class="mechanic-title adder-title">{{ playbookUnique.title }}</strong>
+    @if (playbook === 'infamous' && !toggleCollapse) {
+        <div class="infamous-layout">
+            @for (section of playbookUnique.firstSection; track $index) {
+                <span [innerHTML]="section.header"></span>
+                @if (section.label === 'WICKED PAST') {
+                    <div class="input-label-layout padding-right margin-bottom">
+                        <label for="past">{{ section.label }}</label>
+                        <input autocomplete="off" type="text" id="past" name="past">
+                    </div>
+                } 
+                @else {
+                    <div class="forgive-section">
+                        <div class="forgive-buttons">
+                            <button
+                                class="utility-button"
+                                (click)="addAtoneSection()"
+                            >[ ADD A PC ]
+                            </button>
+                        </div>
+                        <div class="forgive-list">
+                            @for (atoneSection of forgivenessArray; track $index) {
+                                <div [ngClass]="{'forgiven': atoneSection.forgiven}" class="atone-layout">
+                                    <div class="remove-atone-button">
+                                        <button (click)="removeAtoneSection($index)" class="add-minus">[ - ]</button>
+                                    </div>
+                                    <span class="input-label-layout name">
+                                        <input [(ngModel)]="atoneSection.name" autocomplete="off" [disabled]="atoneSection.forgiven" type="text" id="atoneName" name="atoneName">
+                                        <label for="atoneName">PC NAME</label>
+                                    </span>
+                                    <span class="input-label-layout deed">
+                                        <input [(ngModel)]="atoneSection.atonement" autocomplete="off" [disabled]="atoneSection.forgiven" type="text" id="deed" name="deed">
+                                        <label for="deed">DEED</label>
+                                    </span>
+                                    <div class="forgive-button">
+                                        <button
+                                            [disabled]="atoneSection.name === '' && atoneSection.atonement === ''"
+                                            [ngClass]="{'locked': atoneSection.forgiven}"
+                                            class="utility-button"
+                                            (click)="toggleForgive($index)"
+                                        >{{ atoneSection.forgiven ? '[ FORGOTTEN? ]' : '[ FORGIVEN? ]' }}</button>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="label-section"><em>{{section.label}}</em></div>
+                    </div>
+                }
+            }
+            <div class="second-section">
+                <div><strong>{{ playbookUnique.secondSection.title }}:</strong></div>
+                @for (question of playbookUnique.secondSection.questions; track $index) {
+                    <div class="question-section padding-right">
+                        <div class="question">{{ question }}</div>
+                        <div class="input-label-layout padding-right">
+                            <input type="text" id="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}" name="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}">
+                            <label for="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}">
+                                {{ $index === 0 ? 'PERSONAL GROWTH' : $index === 1 ? 'GRIEF' : 'NEVER AGAIN' }}
+                            </label>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    } @else {
+        <div class="collapse-text"><em>do you really think you can be forgiven?</em></div>
+    }
 </div>

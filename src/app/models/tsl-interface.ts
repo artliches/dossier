@@ -16,3 +16,22 @@ interface NameQuestionObj {
     name: string,
     questions: string[]
 }
+
+export interface InfamousUnique {
+    title: string,
+    firstSection: string,
+    firstSectionQuestion: {
+        question: string,
+        descrip: string,
+    },
+    secondSection: {
+        title: string,
+        question: string[]
+    },
+}
+
+export interface ForgiveObj {
+    name: string,
+    atonement: string,
+    forgiven: boolean,
+}

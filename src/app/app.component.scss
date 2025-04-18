@@ -7,19 +7,6 @@ $division: #ececec;
     gap: $gap;
 }
 
-button {
-    border-radius: 0rem;
-    border: none;
-    width: 3.3rem;
-    height: 100%;
-    text-align: center;
-    font-family: 'RobotoMono';
-    &:hover:not(:disabled) {
-        background-color: $chartreuse;
-        cursor: pointer;
-    }
-}
-
 .tsl-char-sheet {
     height: 100%;
 
@@ -52,17 +39,6 @@ button {
         .utility-section {
             grid-area: utility;
             place-self: end;
-            button {
-                width: max-content;
-                height: min-content;
-                background-color: black;
-                color: white;
-                &:hover {
-                    background-color: blue;
-                    color: white;
-                    font-weight: bold;
-                }
-            }
         }
         .input-section > input, .input-section > select {
             background-color: transparent;
@@ -247,8 +223,11 @@ input, select {
                 "descrip    utility";
         }
         .body-section {
-            display: flex;
-
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            .mechanics {
+                grid-column: span 2;
+            }
         }
         .subsection {
             &.stat-choice {
@@ -257,7 +236,6 @@ input, select {
             &.truths {
                 @include flex-column;
                 justify-content: center;
-                width: 100%;
             }
         }
     }

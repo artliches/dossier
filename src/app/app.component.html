@@ -5,7 +5,7 @@
     <div class="identity-section">
       <div class="input-section name-section">
         <label for="name">NAME/PRONOUNS</label>
-        <input [disabled]="lockInputs" [(ngModel)]="tslInfo.name" type="text" id="name" name="name">
+        <input autocomplete="off" [disabled]="lockInputs" [(ngModel)]="tslInfo.name" type="text" id="name" name="name">
        </div>
   
        <div class="input-section playbook-section">
@@ -29,7 +29,7 @@
        </div>
 
        <div class="utility-section">
-        <button (click)="lockInputs = !lockInputs">[ {{lockInputs ? 'UNLOCK INPUTS' : 'LOCK INPUTS'}} ]</button>
+        <button class="utility-button" [ngClass]="{'locked': lockInputs}" (click)="lockInputs = !lockInputs">[ {{lockInputs ? 'UNLOCK INPUTS' : 'LOCK INPUTS'}} ]</button>
        </div>
      </div>
 
@@ -47,8 +47,8 @@
                     <label for="daring">
                       <strong>DARING</strong>
                       <div class="button-section">
-                         <button [disabled]="lockInputs || tslInfo.stats.daring === null || tslInfo.stats.daring === -1" (click)="updateStat('daring', false)">[ - ]</button>
-                         <button [disabled]="lockInputs || tslInfo.stats.daring === null || tslInfo.stats.daring === 3" (click)="updateStat('daring', true)">[ + ]</button>
+                         <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.daring === null || tslInfo.stats.daring === -1" (click)="updateStat('daring', false)">[ - ]</button>
+                         <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.daring === null || tslInfo.stats.daring === 3" (click)="updateStat('daring', true)">[ + ]</button>
                       </div>
                     </label>
                     <em class="stat-descrip">skill at arms//forcefulness</em>
@@ -58,8 +58,8 @@
                     <label for="grace">
                       <strong>GRACE</strong>
                       <div class="button-section">
-                        <button [disabled]="lockInputs || tslInfo.stats.grace === null || tslInfo.stats.grace === -1" (click)="updateStat('grace', false)">[ - ]</button>
-                        <button [disabled]="lockInputs || tslInfo.stats.grace === null || tslInfo.stats.grace === 3" (click)="updateStat('grace', true)">[ + ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.grace === null || tslInfo.stats.grace === -1" (click)="updateStat('grace', false)">[ - ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.grace === null || tslInfo.stats.grace === 3" (click)="updateStat('grace', true)">[ + ]</button>
                      </div>
                     </label>
                     <em class="stat-descrip">elegance//agility</em>
@@ -69,8 +69,8 @@
                     <label for="heart">
                       <strong>HEART</strong>
                       <div class="button-section">
-                        <button [disabled]="lockInputs || tslInfo.stats.heart === null || tslInfo.stats.heart === -1" (click)="updateStat('heart', false)">[ - ]</button>
-                        <button [disabled]="lockInputs || tslInfo.stats.heart === null || tslInfo.stats.heart === 3" (click)="updateStat('heart', true)">[ + ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.heart === null || tslInfo.stats.heart === -1" (click)="updateStat('heart', false)">[ - ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.heart === null || tslInfo.stats.heart === 3" (click)="updateStat('heart', true)">[ + ]</button>
                       </div>
                     </label>
                     <em class="stat-descrip">emotional awareness//expression</em>
@@ -80,8 +80,8 @@
                     <label for="wit">
                       <strong>WIT</strong>
                       <div class="button-section">
-                        <button [disabled]="lockInputs || tslInfo.stats.wit === null || tslInfo.stats.wit === -1" (click)="updateStat('wit', false)">[ - ]</button>
-                        <button [disabled]="lockInputs || tslInfo.stats.wit === null || tslInfo.stats.wit === 3" (click)="updateStat('wit', true)">[ + ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.wit === null || tslInfo.stats.wit === -1" (click)="updateStat('wit', false)">[ - ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.wit === null || tslInfo.stats.wit === 3" (click)="updateStat('wit', true)">[ + ]</button>
                       </div>
                     </label>
                     <em class="stat-descrip">cleverness//knowledge</em>
@@ -91,8 +91,8 @@
                     <label for="spirit">
                       <strong>SPIRIT</strong>
                       <div class="button-section">
-                        <button [disabled]="lockInputs || tslInfo.stats.spirit === null || tslInfo.stats.spirit === -1" (click)="updateStat('spirit', false)">[ - ]</button>
-                        <button [disabled]="lockInputs || tslInfo.stats.spirit === null || tslInfo.stats.spirit === 3" (click)="updateStat('spirit', true)">[ + ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.spirit === null || tslInfo.stats.spirit === -1" (click)="updateStat('spirit', false)">[ - ]</button>
+                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.spirit === null || tslInfo.stats.spirit === 3" (click)="updateStat('spirit', true)">[ + ]</button>
                       </div>
                     </label>
                     <em class="stat-descrip">integrity//metaphysical power</em>
@@ -155,7 +155,7 @@
       }
 
       @if (hideStartingStats) {
-        <app-unique-playbook-mechanics [playbook]="tslInfo.playbook"></app-unique-playbook-mechanics>
+        <app-unique-playbook-mechanics class="mechanics" [playbook]="tslInfo.playbook"></app-unique-playbook-mechanics>
       }
      </div>
    </form>
