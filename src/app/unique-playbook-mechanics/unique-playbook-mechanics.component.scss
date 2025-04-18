@@ -9,6 +9,13 @@ $rust: #FF5500;
     }
     .mechanic-title {
         color: $rust;
+        user-select: none;
+        &:hover {
+            cursor: pointer;
+            background-color: $rust;
+            color: lightblue;
+            width: 100%;
+        }
     }
 }
 
