@@ -12,18 +12,22 @@ import { FormsModule } from '@angular/forms';
 })
 export class UniquePlaybookMechanicsComponent implements OnChanges {
   @Input() playbook: string = '';
+  @Input() lockInputs: boolean = false;
   playbookUnique: any;
 
   forgivenessArray: ForgiveObj[] = [];
   toggleCollapse: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
-      switch (true) {
-        case this.playbook === 'infamous': {
-          this.playbookUnique = INFAMOUS_UNIQUE;
-          this.addAtoneSection();
+      if (changes['playbook']) {
+        switch (true) {
+          case this.playbook === 'infamous': {
+            this.playbookUnique = INFAMOUS_UNIQUE;
+            this.addAtoneSection();
+          }
         }
       }
+
   }
 
   addAtoneSection() {

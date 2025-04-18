@@ -7,13 +7,14 @@
                 @if (section.label === 'WICKED PAST') {
                     <div class="input-label-layout padding-right margin-bottom">
                         <label for="past">{{ section.label }}</label>
-                        <input autocomplete="off" type="text" id="past" name="past">
+                        <input [disabled]="lockInputs" autocomplete="off" type="text" id="past" name="past">
                     </div>
                 } 
                 @else {
                     <div class="forgive-section">
                         <div class="forgive-buttons">
                             <button
+                                [disabled]="lockInputs"
                                 class="utility-button"
                                 (click)="addAtoneSection()"
                             >[ ADD A PC ]
@@ -26,11 +27,11 @@
                                         <button (click)="removeAtoneSection($index)" class="add-minus">[ - ]</button>
                                     </div>
                                     <span class="input-label-layout name">
-                                        <input [(ngModel)]="atoneSection.name" autocomplete="off" [disabled]="atoneSection.forgiven" type="text" id="atoneName" name="atoneName">
+                                        <input [(ngModel)]="atoneSection.name" autocomplete="off" [disabled]="atoneSection.forgiven || lockInputs" type="text" id="atoneName" name="atoneName">
                                         <label for="atoneName">PC NAME</label>
                                     </span>
                                     <span class="input-label-layout deed">
-                                        <input [(ngModel)]="atoneSection.atonement" autocomplete="off" [disabled]="atoneSection.forgiven" type="text" id="deed" name="deed">
+                                        <input [(ngModel)]="atoneSection.atonement" autocomplete="off" [disabled]="atoneSection.forgiven || lockInputs" type="text" id="deed" name="deed">
                                         <label for="deed">DEED</label>
                                     </span>
                                     <div class="forgive-button">
@@ -54,7 +55,7 @@
                     <div class="question-section padding-right">
                         <div class="question">{{ question }}</div>
                         <div class="input-label-layout padding-right">
-                            <input type="text" id="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}" name="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}">
+                            <input [disabled]="lockInputs" type="text" id="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}" name="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}">
                             <label for="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}">
                                 {{ $index === 0 ? 'PERSONAL GROWTH' : $index === 1 ? 'GRIEF' : 'NEVER AGAIN' }}
                             </label>
