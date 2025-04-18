@@ -35,3 +35,10 @@ export interface ForgiveObj {
     atonement: string,
     forgiven: boolean,
 }
+
+export interface MoveObj {
+    title: string,
+    descrip: string,
+    starting: boolean,
+    canTakeFromAdvance: boolean,
+}

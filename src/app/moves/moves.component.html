@@ -1,0 +1,39 @@
+<div class="moves-layout">
+    <div class="moves-title adder-title">MOVES</div>
+    <div class="moves-body">
+        @for (move of chosenMoves; track $index) {
+            <div class="move-section">
+                <span class="move-title"><strong>{{ move.title | uppercase }}:</strong></span>
+                <span class="move-descrip" [innerHTML]="move.descrip"></span>
+            </div>
+        }
+        @if (!finalized) {
+            <div class="starting-moves-section">
+                <div class="starting-moves-header">
+                    <span class="header-text">
+                        <div>you start with the above moves</div>
+                        <div>pick two from below</div>
+                    </span>
+                    <button (click)="finalizeStartingMoves()" [disabled]="!canFinalize" class="utility-button">[ FINALIZE ]</button>
+                </div>
+                <div class="starting-moves-layout">
+                    @for (buildMove of builderMoves; track $index) {
+                        <div class="move-section">
+                            <span class="move-title">
+                                <button 
+                                    [disabled]="canFinalize && !tempChosenMoves.includes(buildMove)"
+                                    (click)="addRemoveToTempChosenMoves($index)" 
+                                    class="add-minus"
+                                    [ngClass]="{'chosen': tempChosenMoves.includes(buildMove)}"
+                                >
+                                    {{ tempChosenMoves.includes(buildMove) ? '[ - ]' : '[ + ]' }}
+                                </button>
+                                <strong>{{ buildMove.title | uppercase }}:</strong></span>
+                            <span class="move-descrip" [innerHTML]="buildMove.descrip"></span>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

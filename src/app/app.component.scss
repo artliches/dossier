@@ -228,6 +228,9 @@ input, select {
             .mechanics {
                 grid-column: span 2;
             }
+            .moves {
+                grid-column: span 2;
+            }
         }
         .subsection {
             &.stat-choice {

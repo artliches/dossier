@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 import { TSL_Info } from './models/tsl-interface';
 import { BEAST, CHOSEN, DEVOTED, INFAMOUS, PLAYBOOK_LIST } from '../../public/assets/playbooks.constants';
 import { UniquePlaybookMechanicsComponent } from "./unique-playbook-mechanics/unique-playbook-mechanics.component";
+import { MovesComponent } from './moves/moves.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, UniquePlaybookMechanicsComponent],
+  imports: [CommonModule, FormsModule, UniquePlaybookMechanicsComponent, MovesComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

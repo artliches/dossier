@@ -183,8 +183,99 @@ export const INFAMOUS_UNIQUE = {
             that could lead to harm. What are they? Examples
             include: Lying, stealing, accepting someone’s love,
             drawing blood, or breaking a promise. If you break
-            your vow, you Stagger. Then decide whether to
+            your vow, you <strong>Stagger</strong>. Then decide whether to
             keep the vow or abandon it.`
         ]
     },
 }
+
+export const INFAMOUS_MOVES = [
+{
+    title: 'Wicked Past',
+    descrip: `When you hear about a villain for the first time, you may decide that
+    you know them from your past. If so, give them a String on you to ask a question
+    from the <strong>Figure Out a Person</strong> list and take +1 forward against them.`,
+    starting: true,
+    canTakeFromAdvance: true,
+},
+{
+    title: 'Make It Right',
+    descrip: `When you allow yourself to be vulnerable to someone you hurt
+    during your villainous past, they choose 1:
+    <ul>
+        <li><u>Decline to engage</u>; they gain a String on you</li>
+        <li><u>Lash out</u>; you <strong>Stagger</strong></li>
+        <li><u>Guide you</u>; they mark XP and give you a task to help make amends</li>
+        <li><u>Show vulnerability</u>; you take +1 forward to interact with them</li>
+        <li><u>Forgive you</u>; you each clear a Condition and this move no longer triggers with this person</li>
+    </ul>
+    `,
+    starting: true,
+    canTakeFromAdvance: true,
+},
+{
+    title: `Always Suspect`,
+    descrip: `When you pretend to be a villain to win a villain’s trust, they trust
+    you enough to offer you an opportunity and you gain a String on them. You must
+    choose one of the following options:
+    <ul>
+        <li>Someone watching comes to the worst possible conclusion</li>
+        <li>The villain requires an act of villainy to prove your intentions first</li>
+        <li>The villain is only pretending to trust you and the opportunity is a trap</li>
+    </ul>
+    `,
+    starting: false,
+    canTakeFromAdvance: true,
+},
+{
+    title: `Talons of the Past`,
+    descrip: `When you gain a String on someone associated with your
+    villainous past, or vice versa, mark XP. The first time this happens for a given person,
+    you each can define a secret or vulnerability you know about the other.`,
+    starting: false,
+    canTakeFromAdvance: true,
+},
+{
+    title: `They Can Change, Too`,
+    descrip: `When you give up an advantage on someone dangerous
+    because you believe they can mend their wicked ways, you can ask a question as
+    if you’d Figured Them Out.`,
+    starting: false,
+    canTakeFromAdvance: true,
+},
+{
+    title: `Used to Disappointment`,
+    descrip: `When you rely upon or trust someone else with
+    something important, say how you expect them to let you down.
+    <ul>
+        <li>If they pleasantly surprise you, they gain a String on you</li>
+        <li>If they do as you expect, choose 1: they lose a String on you, or you gain a String on them</li>
+        <li>If they are somehow even worse than you expected, you have a choice: berate them and inflict a Condition, or swallow your loneliness and take a Condition yourself</li>
+    </ul>
+    `,
+    starting: false,
+    canTakeFromAdvance: true,
+},
+{
+    title: `What Makes a Home`,
+    descrip: `If every other PC in a scene has a String on you, your
+    Conditions cause you only a –1 penalty instead of a –2 to the associated basic moves.`,
+    starting: false,
+    canTakeFromAdvance: true,
+},
+{
+    title: `Who’s the Monster?`,
+    descrip: `When you expose the hypocrisy of someone who is
+    supposedly virtuous, roll +Daring:
+    10+:Gain a String on them and choose 1
+    7–9:Choose 1
+    <ul>
+        <li>The wrongness of their act is exposed to all; they mark XP if they change their mind. If they don’t, they must attack you or take a Condition.</li>
+        <li>Your words sting; they take a Condition.</li>
+        <li>You impress an onlooker; gain a String on them.</li>
+    </ul>
+    `,
+    starting: false,
+    canTakeFromAdvance: true,
+}
+];

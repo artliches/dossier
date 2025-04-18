@@ -37,7 +37,7 @@ $rust: #FF5500;
             font-size: 0.8rem;
             color: #fd7e3e;
         }
-        input {
+        .input, input {
             border: none;
             border-bottom: 1px solid $rust;
             font-family: 'RobotoMono';

@@ -1,5 +1,5 @@
 <div class="mechanic-layout">
-    <strong (click)="toggleCollapse = !toggleCollapse" class="mechanic-title adder-title">{{ playbookUnique.title }}</strong>
+    <strong (click)="toggleCollapse = !toggleCollapse" class="mechanic-title adder-title">{{ playbookUnique.title }} {{ toggleCollapse ? '&#9650;' : '&#9660;' }}</strong>
     @if (playbook === 'infamous' && !toggleCollapse) {
         <div class="infamous-layout">
             @for (section of playbookUnique.firstSection; track $index) {
@@ -53,9 +53,10 @@
                 <div><strong>{{ playbookUnique.secondSection.title }}:</strong></div>
                 @for (question of playbookUnique.secondSection.questions; track $index) {
                     <div class="question-section padding-right">
-                        <div class="question">{{ question }}</div>
+                        <div class="question" [innerHTML]="question"></div>
                         <div class="input-label-layout padding-right">
-                            <input [disabled]="lockInputs" type="text" id="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}" name="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}">
+                            <span class="input" role="textbox" contenteditable id="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}"></span>
+                            <!-- <input contenteditable [disabled]="lockInputs" type="text" id="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}" name="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}"> -->
                             <label for="{{ $index === 0 ? 'growth' : $index === 1 ? 'grief' : 'actions' }}">
                                 {{ $index === 0 ? 'PERSONAL GROWTH' : $index === 1 ? 'GRIEF' : 'NEVER AGAIN' }}
                             </label>
