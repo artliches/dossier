@@ -158,3 +158,33 @@ export const INFAMOUS = {
         }
     ],
 };
+
+export const INFAMOUS_UNIQUE = {
+    title: 'WHAT CANNOT BE UNDONE',
+    firstSection: [
+        {
+            header:`
+                <div>You’ve hurt people, and they have no obligation to forgive you or engage with you.</div>
+                <div><strong>Before defining Relationships in character creation, propose a <u>wicked past</u> that you think could be forgiven.</div>
+            `,
+            label: `WICKED PAST`
+        },
+        {
+            header: `Then ask each PC the following question: <strong>What circumstances or subsequent deeds could make it possible to forgive this past?</strong>`,
+            label: `If anyone hesitates or can’t answer the question, revisit your past and tone it down. You can tone down the gravity of your backstory by reducing the severity of your deeds or the agency you had in enacting them.`
+        }
+    ],
+    secondSection: {
+        title: 'Afterwards, answer these questions',
+        questions: [
+            `What personal growth are you proud of?`,
+            `What about your past causes you the most grief?`,
+            `You swore to never again perform certain actions
+            that could lead to harm. What are they? Examples
+            include: Lying, stealing, accepting someone’s love,
+            drawing blood, or breaking a promise. If you break
+            your vow, you Stagger. Then decide whether to
+            keep the vow or abandon it.`
+        ]
+    },
+}
