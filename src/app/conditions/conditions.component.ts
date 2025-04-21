@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-conditions',
@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './conditions.component.scss'
 })
 export class ConditionsComponent {
+  @Input() lockInputs: boolean = false;
   conditionsArray: any[] = [
     {
       name: 'ANGRY',
@@ -38,11 +39,14 @@ export class ConditionsComponent {
   chosenConditionsIndexes: number[] = [];
 
   toggleCondition(index: number) {
-    if (this.chosenConditionsIndexes.includes(index)) {
-      const indexLocation = this.chosenConditionsIndexes.indexOf(index);
-      this.chosenConditionsIndexes.splice(indexLocation, 1);
-    } else {
-      this.chosenConditionsIndexes.push(index);
+    if (!this.lockInputs) {
+      if (this.chosenConditionsIndexes.includes(index)) {
+        const indexLocation = this.chosenConditionsIndexes.indexOf(index);
+        this.chosenConditionsIndexes.splice(indexLocation, 1);
+      } else {
+        this.chosenConditionsIndexes.push(index);
+      }
     }
+
   }  
 }

@@ -21,7 +21,7 @@
                         <div class="move-section">
                             <span class="move-title">
                                 <button 
-                                    [disabled]="canFinalize && !tempChosenMoves.includes(buildMove)"
+                                    [disabled]="canFinalize && !tempChosenMoves.includes(buildMove) || lockInputs"
                                     (click)="addRemoveToTempChosenMoves($index)" 
                                     class="add-minus"
                                     [ngClass]="{'chosen': tempChosenMoves.includes(buildMove)}"

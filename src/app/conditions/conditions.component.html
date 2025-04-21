@@ -4,7 +4,10 @@
         @for (condition of conditionsArray; track $index) {
             <div class="condition-section">
                 <div
-                    [ngClass]="{'chosenCondition': chosenConditionsIndexes.includes($index)}"
+                    [ngClass]="{
+                        'chosenCondition': chosenConditionsIndexes.includes($index),
+                        'locked': lockInputs,
+                    }"
                     (click)="toggleCondition($index)"
                     class="condition-checkbox"
                 >

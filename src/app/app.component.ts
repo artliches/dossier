@@ -8,10 +8,11 @@ import { MovesComponent } from './moves/moves.component';
 import { StatsComponent } from "./stats/stats.component";
 import { ConditionsComponent } from "./conditions/conditions.component";
 import { TruthsComponent } from "./truths/truths.component";
+import { StringsComponent } from './strings/strings.component';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, UniquePlaybookMechanicsComponent, MovesComponent, StatsComponent, ConditionsComponent, TruthsComponent],
+  imports: [CommonModule, FormsModule, UniquePlaybookMechanicsComponent, MovesComponent, StatsComponent, ConditionsComponent, TruthsComponent, StringsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

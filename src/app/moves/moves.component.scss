@@ -3,7 +3,7 @@
     .moves-title {
         padding: 1rem 1rem 0.5rem 1rem;
         background-color: red;
-        width: 100%;
+        // width: 100%;
         color: white;
     }
     .moves-body {
@@ -84,6 +84,7 @@
             writing-mode: sideways-lr;
             z-index: 2;
             text-align: end;
+            width: 100%;
         }
         .moves-body {
             padding-left: 1.3rem;

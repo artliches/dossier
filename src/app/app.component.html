@@ -43,10 +43,11 @@
         ></app-stats>
       }
       @if (statsFinalized) {
-        <app-conditions class="conditions"></app-conditions>
+        <app-conditions [lockInputs]="lockInputs" class="conditions"></app-conditions>
         <app-truths class="truths" [truths]="tslInfo.truths"></app-truths>
         <app-unique-playbook-mechanics class="mechanics" [playbook]="tslInfo.playbook" [lockInputs]="lockInputs"></app-unique-playbook-mechanics>
         <app-moves class="moves" [playbook]="tslInfo.playbook" [lockInputs]="lockInputs"></app-moves>
+        <app-strings [lockInputs]="lockInputs" class="strings"></app-strings>
       }
      </div>
    </form>

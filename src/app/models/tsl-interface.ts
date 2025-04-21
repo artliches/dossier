@@ -42,3 +42,8 @@ export interface MoveObj {
     starting: boolean,
     canTakeFromAdvance: boolean,
 }
+
+export interface StringObj {
+    name: string,
+    numStrings: number
+}

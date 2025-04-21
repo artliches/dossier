@@ -16,15 +16,21 @@
         .condition-checkbox {
             padding: 2px 1px 0 1px;
             border: 1px solid white;
+            border-right-width: 3px;
+            border-bottom-width: 3px;
             height: 42px;
             width: 42px;
             cursor: pointer;
+            user-select: none;
             &.chosenCondition {
                 background-color: magenta;
                 display: grid;
                 place-items: center;
                 font-size: 2rem;
                 font-family: 'Adder';
+            }
+            &.locked {
+                cursor: unset;
             }
         }
         .condition-text {
