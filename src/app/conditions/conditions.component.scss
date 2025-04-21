@@ -1,0 +1,49 @@
+.conditions-layout  {
+    padding: 1rem;
+    background-color: blue;
+    color: white;
+    border: 1px solid blue;
+    height: 100%;
+    .conditions-body {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .conditions-body .condition-section {
+        display: grid;
+        grid-template-columns: 45px 1fr;
+        column-gap: 0.5rem;
+        .condition-checkbox {
+            padding: 2px 1px 0 1px;
+            border: 1px solid white;
+            height: 42px;
+            width: 42px;
+            cursor: pointer;
+            &.chosenCondition {
+                background-color: magenta;
+                display: grid;
+                place-items: center;
+                font-size: 2rem;
+                font-family: 'Adder';
+            }
+        }
+        .condition-text {
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            grid-template-rows: repeat(2, min-content);
+            column-gap: 0.5rem;
+            place-self: center start;
+            .condition-stat, .condition-clear {
+                font-size: var(--descrip-font-size);
+            }
+            .condition-stat {
+                place-self: center start;
+            }
+            .condition-clear {
+                grid-column: span 2;
+                color: cyan;
+
+            }
+        }
+    }
+}

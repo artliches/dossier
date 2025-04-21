@@ -12,7 +12,7 @@ export interface TSL_Info {
     truths: NameQuestionObj[]
 };
 
-interface NameQuestionObj {
+export interface NameQuestionObj {
     name: string,
     questions: string[]
 }

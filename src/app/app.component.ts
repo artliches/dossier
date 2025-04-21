@@ -5,10 +5,13 @@ import { TSL_Info } from './models/tsl-interface';
 import { BEAST, CHOSEN, DEVOTED, INFAMOUS, PLAYBOOK_LIST } from '../../public/assets/playbooks.constants';
 import { UniquePlaybookMechanicsComponent } from "./unique-playbook-mechanics/unique-playbook-mechanics.component";
 import { MovesComponent } from './moves/moves.component';
+import { StatsComponent } from "./stats/stats.component";
+import { ConditionsComponent } from "./conditions/conditions.component";
+import { TruthsComponent } from "./truths/truths.component";
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule, UniquePlaybookMechanicsComponent, MovesComponent],
+  imports: [CommonModule, FormsModule, UniquePlaybookMechanicsComponent, MovesComponent, StatsComponent, ConditionsComponent, TruthsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -18,8 +21,7 @@ export class AppComponent {
   tslInfo: TSL_Info = {} as TSL_Info;
   playbooksArray = PLAYBOOK_LIST;
   startingStats: any[] = [];
-  hideStartingStats: boolean = false;
-  statChosen: boolean = false;
+  statsFinalized: boolean = false;
 
   playbookChosen() {
     let playbookInfo;
@@ -64,27 +66,6 @@ export class AppComponent {
         this.tslInfo = {} as TSL_Info;
         break;
       }
-    }
-  }
-
-  chooseStat(statChoice: number[]) {
-    Object.entries(this.tslInfo.stats).forEach(([key, value], index) => {
-      this.tslInfo.stats[key as keyof typeof this.tslInfo.stats] = statChoice[index];
-    });
-    this.statChosen = true;
-  }
-
-  removeStartingStatSelection(statChosen: boolean) {
-    if (statChosen) {
-      this.hideStartingStats = true;
-    }
-  }
-
-  updateStat(key: string, increaseStat: boolean) {
-    if (increaseStat) {
-      this.tslInfo.stats[key as keyof typeof this.tslInfo.stats]! ++;
-    } else {
-      this.tslInfo.stats[key as keyof typeof this.tslInfo.stats]! --;
     }
   }
 

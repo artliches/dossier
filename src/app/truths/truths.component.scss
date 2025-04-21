@@ -1,0 +1,22 @@
+@mixin flex-column($gap: 0rem) {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+}
+
+.truths {
+    height: 100%;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    .truth-title {
+        font-size: 1.3rem;
+        font-family: 'Adder';
+    }
+    .truth-body {
+        @include flex-column(1rem);
+        em {
+            color: #ccc;
+        }
+    }
+}

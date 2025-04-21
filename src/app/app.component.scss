@@ -48,76 +48,6 @@ $division: #ececec;
             }
         }
     }
-    .subsection {
-        &:nth-child(even) {
-            background-color: black;
-            color: white;
-        }
-        &:nth-child(odd) {
-            border: 1px solid $chartreuse;
-        }
-        border-top: none;
-        padding: 1rem;
-        .subsection-title {
-            font-size: 1.3rem;
-            font-family: 'Adder';
-        }
-        &.truths {
-            .subsection-body {
-                @include flex-column(1rem);
-                em {
-                    color: #ccc;
-                }
-            }
-        }
-        &.stat-choice {
-            display: grid;
-            grid-auto-rows: max-content;
-            grid-auto-flow: row;
-            grid-gap: 1rem;
-            place-items: center;
-
-            .choice-section {
-                .subsection-title {
-                    display: flex;
-                    align-items: center;
-                }
-            }
-        }
-    }
-    .stats {
-        @include flex-column(0.5rem);
-    }
-    .stat-choice-section {
-        display: grid;
-        grid-template-columns: repeat(2, 48px);
-        grid-template-areas:
-            "col1       col2"
-            "descrip    descrip";
-
-        .choice-descrip {
-            grid-area: descrip;
-        }
-        .choice-column {
-            font-size: 2rem;
-            @include flex-column(0.5rem);
-            text-align: center;
-            >div {
-                padding: 2px 1px 0 1px;
-                border: 1px solid black;
-                height: 42px;
-                width: 42px;
-            }
-            &:hover {
-                background-color: #c2fe0c;
-                cursor: pointer;
-            }
-        }
-    }
-}
-
-input, select {
-    font-family: 'RobotoMono';
 }
 
 .input-section {
@@ -139,81 +69,6 @@ input, select {
     }
 }
 
-.stat-section {
-    display: grid;
-    grid-template-columns: 3rem 1fr;
-    grid-template-rows: 1fr auto;
-    grid-template-areas: 
-        "input  label"
-        "input  descrip";
-    column-gap: 0.5rem;
-    label {
-        grid-area: label;
-        place-self: center start;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        .button-section {
-            display: flex;
-            gap: 1rem;
-        }
-    }
-    .stat-descrip {
-        grid-area: descrip;
-        font-size: var(--descrip-font-size);
-        color: grey;
-    }
-    input {
-        grid-area: input;
-        text-align: center;
-        font-size: 2rem;
-        border-radius: 0rem;
-        border: 1px solid black;
-        user-select: none;
-        cursor: default;
-    }
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        /* display: none; <- Crashes Chrome on hover */
-        -webkit-appearance: none;
-        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
-    }
-
-    input[type=number] {
-        -moz-appearance:textfield; /* Firefox */
-    }
-}
-
-@media only screen and (min-width: 375px) {
-    .tsl-char-sheet {    
-        .subsection {
-            &.stat-choice {
-                padding: 1rem 0.2rem;
-                display: grid;
-                grid-auto-columns: max-content;
-                grid-auto-flow: column;
-                grid-gap: 0.5rem;
-                place-items: unset;
-                &.padding-1 {
-                    padding: 1rem;
-                }
-            }
-        }
-    }
-}
-
-@media only screen and (min-width: 425px) {
-    .tsl-char-sheet {    
-        .subsection {
-            &.stat-choice {
-                padding: 1rem;
-                grid-gap: 1rem;
-            }
-        }
-    }
-}
-
 @media only screen and (min-width: 768px) {
     .tsl-char-sheet {    
         .identity-section {
@@ -225,6 +80,9 @@ input, select {
         .body-section {
             display: grid;
             grid-template-columns: min-content 1fr;
+            .truths {
+                grid-column: span 2;
+            }
             .mechanics {
                 grid-column: span 2;
             }
@@ -232,13 +90,22 @@ input, select {
                 grid-column: span 2;
             }
         }
-        .subsection {
-            &.stat-choice {
-                width: max-content;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .tsl-char-sheet {
+        .body-section {
+            display: grid;
+            grid-template-columns: min-content repeat(2, 1fr);
+            .truths {
+                grid-column: 3;
             }
-            &.truths {
-                @include flex-column;
-                justify-content: center;
+            .mechanics {
+                grid-column: span 3;
+            }
+            .moves {
+                grid-column: span 3;
             }
         }
     }

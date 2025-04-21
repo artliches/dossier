@@ -1,0 +1,22 @@
+<div class="truths">
+    <div class="truth-title">
+      <strong>TRUTHS OF HEART AND BLADE</strong>
+    </div>
+    <div class="truth-body">
+      @for (truth of truths; track $index) {
+        <div>
+          <strong>{{ truth.name }}:</strong>
+          @if ($index === 0) {
+            <em> When you become Smitten with someone, say why, give them a String, and answer this question:</em>
+          } @else {
+            <em> When you <u>Figure Out a Person</u> during physical conflict, you may additionally ask one of these questions, even on a 6-:</em>
+          }
+          <ul>
+            @for (questions of truth.questions; track $index) {
+              <li>{{ questions }}</li>
+            }
+          </ul>
+        </div>
+      }
+    </div>
+  </div>

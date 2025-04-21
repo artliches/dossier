@@ -35,126 +35,16 @@
 
      <div class="body-section">
       @if (showStatSection()) {
-        <div [ngClass]="{'padding-1': hideStartingStats}" class="subsection stat-choice">
-          <div class="stat-subsection">
-            <div
-              class="subsection-title"
-            ><strong>STATS</strong></div>
-            @if (!collapseStats) {
-              <div class="subsection-body">
-                <span class="stats">
-                  <div class="stat-section">
-                    <label for="daring">
-                      <strong>DARING</strong>
-                      <div class="button-section">
-                         <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.daring === null || tslInfo.stats.daring === -1" (click)="updateStat('daring', false)">[ - ]</button>
-                         <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.daring === null || tslInfo.stats.daring === 3" (click)="updateStat('daring', true)">[ + ]</button>
-                      </div>
-                    </label>
-                    <em class="stat-descrip">skill at arms//forcefulness</em>
-                    <input readonly [(ngModel)]="tslInfo.stats.daring" min="-1" max="3" type="number" id="daring" name="daring">
-                  </div>
-                  <div class="stat-section">
-                    <label for="grace">
-                      <strong>GRACE</strong>
-                      <div class="button-section">
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.grace === null || tslInfo.stats.grace === -1" (click)="updateStat('grace', false)">[ - ]</button>
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.grace === null || tslInfo.stats.grace === 3" (click)="updateStat('grace', true)">[ + ]</button>
-                     </div>
-                    </label>
-                    <em class="stat-descrip">elegance//agility</em>
-                    <input readonly [(ngModel)]="tslInfo.stats.grace" min="-1" max="3" type="number" id="grace" name="grace">
-                  </div>
-                  <div class="stat-section">
-                    <label for="heart">
-                      <strong>HEART</strong>
-                      <div class="button-section">
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.heart === null || tslInfo.stats.heart === -1" (click)="updateStat('heart', false)">[ - ]</button>
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.heart === null || tslInfo.stats.heart === 3" (click)="updateStat('heart', true)">[ + ]</button>
-                      </div>
-                    </label>
-                    <em class="stat-descrip">emotional awareness//expression</em>
-                    <input readonly [(ngModel)]="tslInfo.stats.heart" min="-1" max="3" type="number" id="heart" name="heart">
-                  </div>
-                  <div class="stat-section">
-                    <label for="wit">
-                      <strong>WIT</strong>
-                      <div class="button-section">
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.wit === null || tslInfo.stats.wit === -1" (click)="updateStat('wit', false)">[ - ]</button>
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.wit === null || tslInfo.stats.wit === 3" (click)="updateStat('wit', true)">[ + ]</button>
-                      </div>
-                    </label>
-                    <em class="stat-descrip">cleverness//knowledge</em>
-                    <input readonly [(ngModel)]="tslInfo.stats.wit" min="-1" max="3" type="number" id="wit" name="wit">
-                  </div>
-                  <div class="stat-section">
-                    <label for="spirit">
-                      <strong>SPIRIT</strong>
-                      <div class="button-section">
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.spirit === null || tslInfo.stats.spirit === -1" (click)="updateStat('spirit', false)">[ - ]</button>
-                        <button class="add-minus" [disabled]="lockInputs || tslInfo.stats.spirit === null || tslInfo.stats.spirit === 3" (click)="updateStat('spirit', true)">[ + ]</button>
-                      </div>
-                    </label>
-                    <em class="stat-descrip">integrity//metaphysical power</em>
-                    <input readonly [(ngModel)]="tslInfo.stats.spirit" min="-1" max="3" type="number" id="spirit" name="spirit">
-                  </div>
-                </span>
-              </div>
-            }
-          </div>
-
-          @if (startingStats.length > 0 && !hideStartingStats) {
-            <span class="choice-section">
-              <div class="subsection-title">
-                <strong
-                  [ngClass]="{'clickable next': statChosen}"
-                  (click)="removeStartingStatSelection(statChosen)"
-                >
-                  {{ statChosen ? 'NEXT' : 'CHOOSE' }}
-                </strong>
-              </div>
-              <div class="subsection-body">
-                <span class="stat-choice-section">
-                  @for (choice of startingStats; track $index) {
-                    <div (click)="chooseStat(choice)" class="choice-column">
-                      @for (val of choice; track $index) {
-                        <div>{{val}}</div>
-                      }
-                    </div>
-                  }
-                  <div class="small-text choice-descrip"><em>choose one column of stats//add +1 to two different stats</em></div>
-                </span>
-              </div>
-            </span>
-          }
-        </div>
+        <app-stats
+          [lockInputs]="lockInputs"
+          [tslInfo]="tslInfo"
+          [startingStats]="startingStats"
+          (hideStartingStatsEmitter)="statsFinalized = true"
+        ></app-stats>
       }
-      @if (hideStartingStats) {
-        <div class="subsection truths">
-          <div class="subsection-title">
-            <strong>TRUTHS OF HEART AND BLADE</strong>
-          </div>
-          <div class="subsection-body">
-            @for (truth of tslInfo.truths; track $index) {
-              <div>
-                <strong>{{ truth.name }}:</strong>
-                @if ($index === 0) {
-                  <em> When you become Smitten with someone, say why, give them a String, and answer this question:</em>
-                } @else {
-                  <em> When you <u>Figure Out a Person</u> during physical conflict, you may additionally ask one of these questions, even on a 6-:</em>
-                }
-                <ul>
-                  @for (questions of truth.questions; track $index) {
-                    <li>{{ questions }}</li>
-                  }
-                </ul>
-              </div>
-            }
-          </div>
-        </div>
-      }
-
-      @if (hideStartingStats) {
+      @if (statsFinalized) {
+        <app-conditions class="conditions"></app-conditions>
+        <app-truths class="truths" [truths]="tslInfo.truths"></app-truths>
         <app-unique-playbook-mechanics class="mechanics" [playbook]="tslInfo.playbook" [lockInputs]="lockInputs"></app-unique-playbook-mechanics>
         <app-moves class="moves" [playbook]="tslInfo.playbook" [lockInputs]="lockInputs"></app-moves>
       }

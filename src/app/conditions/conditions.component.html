@@ -1,0 +1,24 @@
+<div class="conditions-layout">
+    <div class="conditions-title adder-title">CONDITIONS</div>
+    <div class="conditions-body">
+        @for (condition of conditionsArray; track $index) {
+            <div class="condition-section">
+                <div
+                    [ngClass]="{'chosenCondition': chosenConditionsIndexes.includes($index)}"
+                    (click)="toggleCondition($index)"
+                    class="condition-checkbox"
+                >
+                    @if (chosenConditionsIndexes.includes($index)) {
+                        X
+                    }
+                </div>
+                <span class="condition-text">
+                    <div class="condition-section-title"
+                    ><strong>{{ condition.name }}</strong></div>
+                    <div class="condition-stat" [innerHTML]="condition.statChange"></div>
+                    <div class="condition-clear"><em>{{ condition.clear }}</em></div>
+                </span>
+            </div>
+        }
+    </div>
+</div>
