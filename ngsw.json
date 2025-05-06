@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1745272364066,
+  "timestamp": 1746544442597,
   "index": "/dossier/index.html",
   "assetGroups": [
     {
@@ -13,10 +13,10 @@
       "urls": [
         "/dossier/favicon.ico",
         "/dossier/index.html",
-        "/dossier/main-ZDDAYMES.js",
+        "/dossier/main-XAOK56SM.js",
         "/dossier/manifest.webmanifest",
         "/dossier/polyfills-FFHMD2TL.js",
-        "/dossier/styles-QVAIC7A7.css"
+        "/dossier/styles-D6HPUBMB.css"
       ],
       "patterns": []
     },
@@ -53,13 +53,13 @@
     "/dossier/icons/apple-touch-icon.png": "4f75927ff739f5340882b8cc17435d7e77350a8d",
     "/dossier/icons/favicon-16x16.png": "e7c802d9e95ee46119a85447d415e413f89b435c",
     "/dossier/icons/favicon-32x32.png": "d28406120746dae08c3bf4e15686900a4a132c76",
-    "/dossier/index.html": "c6146e012e25bbe746caeea5b6b75da7e1974c20",
-    "/dossier/main-ZDDAYMES.js": "d220421b66b9e3acfbb523acd4bc85b41a997c68",
+    "/dossier/index.html": "8226a77d854f273e39733b9ad8d74b193bbfe803",
+    "/dossier/main-XAOK56SM.js": "49166e4c0993410da693f7da9bbfb3898cb4b917",
     "/dossier/manifest.webmanifest": "7698e1cb2dbcf9266c5a8c7d435e8a735a0c7710",
     "/dossier/media/Adder-5HCF564L.otf": "611bb3e58129dc95bbf91f1b1de84cd1195d781b",
     "/dossier/media/RobotoMono-W4DSDWKB.ttf": "db68e7694003b4a0f58c675b4131a8226a566f5c",
     "/dossier/polyfills-FFHMD2TL.js": "f49b49a155bc7d192db62a4c15d0a612b460a667",
-    "/dossier/styles-QVAIC7A7.css": "d01dca2af1c8b2490e470e9f371bd6b0bc17b801"
+    "/dossier/styles-D6HPUBMB.css": "0fe0e30bdfb9a8e2f48516267d1e978729391604"
   },
   "navigationUrls": [
     {
