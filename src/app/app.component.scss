@@ -7,109 +7,30 @@ $division: #ececec;
     gap: $gap;
 }
 
-.tsl-char-sheet {
+.tsl-char-sheet-layout {
     height: 100%;
-
-    .identity-section {
-        background-color: $chartreuse;
-        padding: 1rem 0rem 1rem 1rem;
-
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        grid-template-areas:
-            "name"
-            "playbooks"
-            "descrip"
-            "utility";
-        .name-section {
-            grid-area: name;
-            margin-right: 1rem;
-        }
-        .playbook-section {
-            grid-area: playbooks;
-            margin-right: 1rem;
-            .input-section > select > option:disabled {
-                color: black;
-            }
-        }
-        .playbook-descrip-section {
-            grid-area: descrip;
-        }
-        .utility-section {
-            grid-area: utility;
-            place-self: end;
-        }
-        .input-section > input, .input-section > select {
-            background-color: transparent;
-            font-size: 1.2rem;
-            &:disabled {
-                color: black;
-            }
-        }
-    }
-}
-
-.input-section {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(2, auto);
-    label {
-        grid-row: 2;
-        font-size: .8rem;
-        user-select: none;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "body"
+        "footer";
+    .tsl-char-sheet-body {
+        display: grid;
+        place-items: center stretch;
+        grid-area: body;
+        overflow: auto;
+        padding: 0 1rem;
     }
-    input {
-        border: none;
-        border-bottom: 1px solid black;
+    .utility-footer {
+        width: 100%;
+        grid-area: footer;
     }
-    select {
-        border: none;
-        border-bottom: 1px solid black;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .tsl-char-sheet {    
-        .identity-section {
-            grid-template-columns: 2fr 1fr;
-            grid-template-areas:
-                "name       playbooks"
-                "descrip    utility";
-        }
-        .body-section {
-            display: grid;
-            grid-template-columns: min-content 1fr;
-            .truths {
-                grid-column: span 2;
-            }
-            .mechanics {
-                grid-column: span 2;
-            }
-            .moves {
-                grid-column: span 2;
-            }
-            .strings {
-                grid-column: 1;
-            }
-        }
-    }
-}
-
-@media only screen and (min-width: 1440px) {
-    .tsl-char-sheet {
-        .body-section {
-            display: grid;
-            grid-template-columns: min-content repeat(2, 1fr);
-            .truths {
-                grid-column: 3;
-            }
-            .mechanics {
-                grid-column: span 3;
-            }
-            .moves {
-                grid-column: span 3;
-            }
-        }
+    .create-new-layout {
+        place-self: center;
+        width: max-content;
+        padding: 1rem;
+        background-color: var(--chartreuse);
+        color: black;
     }
 }

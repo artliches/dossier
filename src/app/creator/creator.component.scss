@@ -1,0 +1,17 @@
+.creator-layout {
+    background-color: var(--chartreuse);
+    width: 100%;
+    .creator-title {
+        background-color: black;
+        color: white;
+        padding: 0 1rem;
+        text-align: center;
+    }
+    .creator-body {
+        padding: 1rem;
+    }
+    .creator-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -1,55 +1,23 @@
-<div class="tsl-char-sheet">
-  <!-- online character sheet for TSL -->
-   <form #tslForm="ngForm">
-    <!-- {{tslInfo | json}} -->
-    <div class="identity-section">
-      <div class="input-section name-section">
-        <label for="name">NAME/PRONOUNS</label>
-        <input autocomplete="off" [disabled]="lockInputs" [(ngModel)]="tslInfo.name" type="text" id="name" name="name">
-       </div>
-  
-       <div class="input-section playbook-section">
-        <label for="omen">OMEN-TYPE</label>
-        <select 
-          [disabled]="lockInputs"
-          [(ngModel)]="tslInfo.playbook"
-          (change)="playbookChosen()"
-          name="omen"
-          id="omen"
-        >
-          <option value=""></option>
-          @for (playbook of playbooksArray; track $index) {
-            <option value="{{playbook}}">{{playbook | uppercase}}</option>
-          }
-        </select>
-       </div>
+<div class="tsl-char-sheet-layout">
+    <div class="tsl-char-sheet-body">
+        @if (tslCharList && !startCharacterBuilder) {
+            show characters
+        } @else if (!startCharacterBuilder) {
+            <div class="create-new-layout">
+                <button (click)="startCharacterBuilder = true" class="utility-button">[ CREATE NEW ]</button>
+            </div>
+        }
+        @if (startCharacterBuilder) {
+            <app-creator
+            >
+            </app-creator>
+        }
 
-       <div class="playbook-descrip-section">
-          <span [innerHTML]="tslInfo.playbook_descrip"></span>
-       </div>
-
-       <div class="utility-section">
-        <button class="utility-button" [ngClass]="{'locked': lockInputs}" (click)="lockInputs = !lockInputs">[ {{lockInputs ? 'UNLOCK INPUTS' : 'LOCK INPUTS'}} ]</button>
-       </div>
-     </div>
-
-     <div class="body-section">
-      @if (showStatSection()) {
-        <app-stats
-          [lockInputs]="lockInputs"
-          [tslInfo]="tslInfo"
-          [startingStats]="startingStats"
-          (hideStartingStatsEmitter)="statsFinalized = true"
-        ></app-stats>
-      }
-      @if (statsFinalized) {
-        <app-conditions [lockInputs]="lockInputs" class="conditions"></app-conditions>
-        <app-truths class="truths" [truths]="tslInfo.truths"></app-truths>
-        <app-unique-playbook-mechanics class="mechanics" [playbook]="tslInfo.playbook" [lockInputs]="lockInputs"></app-unique-playbook-mechanics>
-        <app-moves class="moves" [playbook]="tslInfo.playbook" [lockInputs]="lockInputs"></app-moves>
-        <app-strings [lockInputs]="lockInputs" class="strings"></app-strings>
-      }
-     </div>
-   </form>
+    </div>
+    @if (true) {
+        <app-utility-footer
+            class="utility-footer"
+        ></app-utility-footer>
+    }
 
 </div>

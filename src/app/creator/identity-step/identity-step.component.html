@@ -1,0 +1,62 @@
+<form class="identity-step-layout" [formGroup]="identityForm">
+    <div class="input-label-layout">
+        <input
+            type="text"
+            autocomplete="off"
+            required
+            id="name"
+            formControlName="name"
+        >
+        <label for="name">
+            @if (identityForm.get('name')?.invalid && (identityForm.get('name')?.dirty || identityForm.get('name')?.touched)) {
+                <span class="error">NAME IS REQUIRED</span>
+            } @else {
+                NAME
+            }
+        </label>
+    </div>
+
+    <div class="input-label-layout">
+        <input
+            type="text"
+            autocomplete="off"
+            required
+            id="pronouns"
+            formControlName="pronouns"
+        >
+        <label for="pronouns">
+            @if (identityForm.get('pronouns')?.invalid && (identityForm.get('pronouns')?.dirty || identityForm.get('pronouns')?.touched)) {
+                <span class="error">PRONOUNS ARE REQUIRED</span>
+            } @else {
+                PRONOUNS
+            }
+        </label>
+    </div>
+
+    <div class="input-label-layout">
+        <select
+            required
+            name="playbookName"
+            id="playbookName"
+            formControlName="playbookName"
+        >
+            <option value=""></option>
+            @for (playbook of playbookArray; track $index) {
+                <option value="{{ playbook }}">{{ playbook | uppercase }}</option>
+            }
+        </select>
+        <label for="playbook">
+            @if (identityForm.get('playbookName')?.invalid && (identityForm.get('playbookName')?.dirty || identityForm.get('playbookName')?.touched)) {
+                <span class="error">OMEN-TYPE IS REQUIRED</span>
+            } @else {
+                OMEN-TYPE
+            }
+        </label>
+    </div>
+
+    @if (playbookDescrip) {
+        <div class="playbook-descrip">
+            <span [innerHTML]="playbookDescrip"></span>
+        </div>
+    }
+</form>

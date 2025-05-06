@@ -1,0 +1,21 @@
+<div class="creator-layout">
+    <div class="creator-title">
+        <strong>{{ stepsTitles[currentStep] }}</strong>
+    </div>
+    <div class="creator-body">
+        @switch (true) {
+            @case (currentStep === 0) {
+                <app-identity-step
+                    [characterObj]="charObj"
+                    (formValidEmitter)="toggleNextButton($event)"
+                    (formValues)="assignTemporaryCharacterObj($event)"
+                >
+                </app-identity-step>
+            }
+        }
+    </div>
+    <div class="creator-buttons">
+        <button (click)="goToPreviousStep()" [disabled]="currentStep === 0" class="utility-button">[ BACK ]</button>
+        <button (click)="goToNextStep()" [disabled]="disableNextButton" class="utility-button">[ NEXT ]</button>
+    </div>
+</div>
